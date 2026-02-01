@@ -1,0 +1,158 @@
+html { scroll-behavior: smooth; }
+#main-bg {
+  background: url('../assets/images/main-bg.jpg') center center / cover no-repeat;
+  filter: blur(2px) brightness(0.9);
+}
+#main-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  pointer-events: none;
+}
+#main-bg-mask {
+  background: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.82) 100%);
+}
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #00d5dd;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+.nav-link.active {
+  color: #fff;
+}
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+.nav-link:hover {
+  color: #fff;
+}
+#back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+#back-to-top:hover {
+  transform: translateY(-2px);
+}
+#back-to-top .back-to-top-text {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transition: max-width 0.3s ease, opacity 0.25s ease, margin-left 0.25s ease;
+}
+#back-to-top:hover .back-to-top-text {
+  max-width: 6rem;
+  opacity: 1;
+  margin-left: 0.5rem;
+}
+#nav-typing-cursor {
+  color: #00d5dd;
+  animation: nav-cursor-blink 0.6s step-end infinite;
+}
+@keyframes nav-cursor-blink {
+  50% { opacity: 0; }
+}
+
+/* Timeline options row – slide down when Timeline chosen */
+.timeline-options-row {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out;
+}
+.timeline-options-row.open {
+  max-height: 3.5rem;
+  opacity: 1;
+}
+
+/* Timeline layout toggle – sliding pill */
+.timeline-layout-toggle.layout-horizontal .timeline-layout-pill {
+  transform: translateX(100%);
+}
+
+/* Timeline frame nav – completely hidden until hover, then prominent */
+.timeline-frame-nav {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+.timeline-frame-nav span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+  border-radius: 9999px;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.timeline-viewport-horizontal .timeline-frame-nav {
+  pointer-events: auto;
+}
+.timeline-viewport-horizontal.group:hover .timeline-frame-nav,
+.timeline-viewport-horizontal .timeline-frame-nav:hover {
+  opacity: 1;
+}
+.timeline-viewport-horizontal.group:hover .timeline-frame-nav span,
+.timeline-viewport-horizontal .timeline-frame-nav:hover span {
+  transform: scale(1.15);
+  background-color: rgba(15, 23, 42, 0.95);
+  color: #00d5dd;
+  box-shadow: 0 0 0 2px rgba(0, 213, 221, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.timeline-frame-nav-left {
+  background: linear-gradient(90deg, rgba(15,23,42,0.6) 0%, transparent 100%);
+}
+.timeline-frame-nav-right {
+  background: linear-gradient(270deg, rgba(15,23,42,0.6) 0%, transparent 100%);
+}
+
+/* Timeline viewport – sliding frame and height transition, no page overflow */
+.timeline-viewport {
+  transition: max-height 0.35s ease-out;
+  min-width: 0;
+}
+.timeline-viewport-inner {
+  width: 200%;
+  display: flex;
+  min-width: 0;
+}
+.timeline-viewport-inner > .timeline-track-vertical,
+.timeline-viewport-inner > .timeline-track-horizontal {
+  flex: 0 0 50%;
+  min-width: 0;
+  width: 50%;
+}
+.timeline-viewport-vertical .timeline-viewport-inner {
+  transform: translateX(0);
+}
+.timeline-viewport-horizontal .timeline-viewport-inner {
+  transform: translateX(-50%);
+}
+.timeline-viewport-vertical {
+  max-height: 65vh;
+}
+.timeline-viewport-horizontal {
+  max-height: 420px;
+}
+.timeline-track-horizontal {
+  min-width: 0;
+}
