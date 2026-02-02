@@ -56,6 +56,8 @@ document.addEventListener('sections-loaded', function () {
         btn.classList.toggle('text-slate-400', !active);
         btn.classList.toggle('hover:text-slate-200', !active);
       });
+      var prevSpan = prevBtn.querySelector('span');
+      if (prevSpan) prevSpan.textContent = isHorizontal ? '<' : '^';
     }
 
     function timelinePrev() {
@@ -77,6 +79,7 @@ document.addEventListener('sections-loaded', function () {
       }
     }
 
+    setTimelineLayout(timelineLayout);
     layoutBtns.forEach(function (btn) {
       btn.addEventListener('click', function () { setTimelineLayout(btn.getAttribute('data-layout')); });
     });

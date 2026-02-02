@@ -104,25 +104,68 @@ html { scroll-behavior: smooth; }
   border-radius: 9999px;
   transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
-.timeline-viewport-horizontal .timeline-frame-nav {
+.timeline-viewport-horizontal .timeline-frame-nav,
+.timeline-viewport-vertical .timeline-frame-nav {
   pointer-events: auto;
 }
 .timeline-viewport-horizontal.group:hover .timeline-frame-nav,
-.timeline-viewport-horizontal .timeline-frame-nav:hover {
+.timeline-viewport-horizontal .timeline-frame-nav:hover,
+.timeline-viewport-vertical.group:hover .timeline-frame-nav,
+.timeline-viewport-vertical .timeline-frame-nav:hover {
   opacity: 1;
 }
 .timeline-viewport-horizontal.group:hover .timeline-frame-nav span,
-.timeline-viewport-horizontal .timeline-frame-nav:hover span {
-  transform: scale(1.15);
-  background-color: rgba(15, 23, 42, 0.95);
-  color: #00d5dd;
-  box-shadow: 0 0 0 2px rgba(0, 213, 221, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4);
+.timeline-viewport-horizontal .timeline-frame-nav:hover span,
+.timeline-viewport-vertical.group:hover .timeline-frame-nav span,
+.timeline-viewport-vertical .timeline-frame-nav:hover span {
+  transform: scale(1.05);
+  background-color: rgba(15, 23, 42, 0.6);
+  color: rgba(148, 163, 184, 0.9);
+  box-shadow: none;
 }
 .timeline-frame-nav-left {
   background: linear-gradient(90deg, rgba(15,23,42,0.6) 0%, transparent 100%);
 }
+.timeline-viewport-vertical .timeline-frame-nav-left {
+  left: 50%;
+  top: 0;
+  right: auto;
+  transform: translateX(-50%);
+  height: auto;
+  min-height: 3rem;
+  min-width: unset;
+  width: 2.5rem;
+  padding-top: 3.5rem;
+  background: linear-gradient(180deg, rgba(15,23,42,0.25) 0%, transparent 100%);
+}
+.timeline-viewport-vertical .timeline-frame-nav-left span {
+  transform: none;
+}
+.timeline-viewport-vertical.group:hover .timeline-frame-nav-left span,
+.timeline-viewport-vertical .timeline-frame-nav-left:hover span {
+  transform: scale(1.05);
+}
 .timeline-frame-nav-right {
   background: linear-gradient(270deg, rgba(15,23,42,0.6) 0%, transparent 100%);
+}
+.timeline-viewport-vertical .timeline-frame-nav-right {
+  left: 50%;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: auto;
+  min-height: 3rem;
+  min-width: unset;
+  width: 2.5rem;
+  background: linear-gradient(0deg, rgba(15,23,42,0.25) 0%, transparent 100%);
+}
+.timeline-viewport-vertical .timeline-frame-nav-right span {
+  transform: rotate(90deg);
+}
+.timeline-viewport-vertical.group:hover .timeline-frame-nav-right span,
+.timeline-viewport-vertical .timeline-frame-nav-right:hover span {
+  transform: rotate(90deg) scale(1.05);
 }
 
 /* Timeline viewport – sliding frame and height transition, no page overflow */
@@ -148,11 +191,60 @@ html { scroll-behavior: smooth; }
   transform: translateX(-50%);
 }
 .timeline-viewport-vertical {
+  height: 65vh;
   max-height: 65vh;
+  display: flex;
+  flex-direction: column;
+}
+.timeline-viewport-vertical .timeline-viewport-inner {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+.timeline-viewport-vertical .timeline-track-vertical {
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+.timeline-viewport-vertical .timeline-vertical-list {
+  position: relative;
+}
+.timeline-viewport-vertical .timeline-vertical-list::before {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background-color: rgb(51 65 85);
+  pointer-events: none;
+  z-index: 0;
+}
+@media (min-width: 640px) {
+  .timeline-viewport-vertical .timeline-vertical-list::before {
+    left: 50%;
+    margin-left: -1px;
+  }
 }
 .timeline-viewport-horizontal {
   max-height: 420px;
 }
 .timeline-track-horizontal {
   min-width: 0;
+}
+.timeline-viewport-horizontal .timeline-horizontal-list {
+  position: relative;
+}
+.timeline-viewport-horizontal .timeline-horizontal-list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1rem;
+  height: 2px;
+  margin-top: -1px;
+  background-color: rgb(51 65 85);
+  pointer-events: none;
+  z-index: 0;
 }
