@@ -16,7 +16,7 @@ document.addEventListener('sections-loaded', function () {
       }
       expButtons.forEach(function (btn) {
         var active = btn.getAttribute('data-mode') === mode;
-        btn.classList.toggle('bg-cyan-500', active);
+        btn.classList.toggle('bg-cyan-3', active);
         btn.classList.toggle('text-slate-950', active);
         btn.classList.toggle('text-slate-400', !active);
         btn.classList.toggle('hover:text-slate-200', !active);
