@@ -70,8 +70,14 @@ window.SECTIONS = {
   "sections/about.html": `<section id="about" class="py-24 px-6 border-t border-slate-800/50">
   <div class="max-w-6xl mx-auto w-full min-w-0">
     <h2 class="text-2xl font-semibold text-white mb-6">About</h2>
+    <p class="text-slate-400 leading-relaxed mb-4">
+      I am a Full Stack Developer with over five years of experience across different IT domains, starting from IT support and progressing into corporate systems development and software engineering.
+    </p>
+    <p class="text-slate-400 leading-relaxed mb-4">
+      I enjoy building applications that automate even the smallest routines, helping teams save time and reduce repetitive work. My technical stack includes PHP, Laravel, Java, MySQL, PostgreSQL, HTML, CSS, JavaScript (Vanilla, Angular, and Vue.js), Bootstrap, Git, and more.
+    </p>
     <p class="text-slate-400 leading-relaxed">
-      Add your bio, skills, and what you do. This section is easy to edit in the HTML.
+      I also make use of AI-assisted tools such as Cursor and Claude to accelerate development, improve code quality, and ensure results meet expectations. My goal is to continuously grow in emerging technologies while staying grounded in collaboration, mentorship, and continuous learning.
     </p>
   </div>
 </section>`,
