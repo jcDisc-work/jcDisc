@@ -55,14 +55,13 @@ window.PROJECTS_DATA = [
     description: 'Internal tool used in bank operations for politically exposed persons monitoring.',
     tech: ['PHP', 'MySQL', 'HTML', 'Bootstrap', 'JavaScript', 'PHPDesktop'],
     img: 'img/projects/pep-monitoring.png',
-    personal: true
+
   }
   ,{
     title: 'Digitization Tool',
     description: 'Internal tool used in bank operations for organizing digitized physical documents of account holder\'s information.',
     tech: ['PHP', 'MySQL', 'HTML', 'Bootstrap', 'JavaScript', 'PHPDesktop'],
     img: 'img/projects/digitization.png',
-    personal: true
   }
 ];
 

@@ -227,6 +227,11 @@ html { scroll-behavior: smooth; }
     margin-left: -1px;
   }
 }
+@media (max-width: 639px) {
+  .timeline-viewport-vertical {
+    max-height: 55vh;
+  }
+}
 .timeline-viewport-horizontal {
   max-height: 420px;
 }
