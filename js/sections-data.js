@@ -2,14 +2,14 @@ window.EXPERIENCES_DATA = [
   { company: 'R2M IT Solutions, Inc.', dateRange: 'Apr 2023 – Present', title: 'Junior Developer III', description: 'Introduced to admin and more complex tasks. Gained more knowledge in investigation, and formal life cycle of tasks. Also helped in developing major features and upgrading the system to the latest version.' },
   { company: 'Genfinity IT Solutions, Inc.', dateRange: 'Apr 2021 – Mar 2023', title: 'Junior Developer II', description: 'Continuing my journey in programming. I was introduced to medium to high tasks like Timekeeping Calculations, Biometric Logs Reading, and others. I was also given the chance to work on a project that was built from scratch like the Reimbursement System.' },
   { company: 'Genworx IT Solutions, Inc.', dateRange: 'Jul 2020 – Mar 2021', title: 'Junior Developer I', description: 'Landed my first time job in pure coding. Little by little, I built my skills and familiarization in simple UI fixes and backend development.' },
-  { company: 'Partner Rural Bank, Inc.', dateRange: 'Sep 2019 – Jul 2020', title: 'IT Staff', description: 'My initial job where I learned the basics of IT in a real-world environment. There I built 2 internal applications used for digitizing bank-related documents and for Politically Exposed Persons (PEP) monitoring. I also assisted in the maintenance of the bank\'s network connectivity and other IT-related tasks.' }
+  { company: 'Partner Rural Bank, Inc.', dateRange: 'Sep 2019 – Jul 2020', title: 'IT Staff', description: 'My initial job where I learned the basics of IT in a real-world environment. There I built 2 internal applications used for digitizing bank-related documents and for specially-monitored accounts. I also assisted in the maintenance of the bank\'s network connectivity and other IT-related tasks.' }
 ];
 
 window.PROJECTS_DATA = [
   {
     title: 'To Do List System',
     description: 'Personal System used for Task Management, and Task Progress Tracking.',
-    tech: ['Electron JS', 'SQLite', 'HTML', 'Tailwind CSS', 'PHP', 'Laravel 10'],
+    tech: ['Electron JS', 'Vue JS', 'SQLite', 'HTML', 'Tailwind CSS', 'PHP', 'Laravel 10'],
     img: 'img/projects/to-do-list.png',
     personal: true
   }
@@ -23,7 +23,7 @@ window.PROJECTS_DATA = [
   ,{
     title: 'Eportal v2 System',
     description: 'Upgrade of the existing Eportal System to the latest version.',
-    tech: ['PHP 8', 'Laravel', 'PostgreSQL', 'HTML', 'Bootstrap', 'Vue.js'],
+    tech: ['PHP 8', 'Laravel', 'PostgreSQL', 'HTML', 'Bootstrap', 'Vue JS'],
     img: 'img/projects/eportal-v2.png'
   }
   ,{
@@ -51,17 +51,27 @@ window.PROJECTS_DATA = [
     img: 'img/projects/eportal.png'
   }
   ,{
-    title: 'PEP Monitoring Tool',
-    description: 'Internal tool used in bank operations for politically exposed persons monitoring.',
+    title: 'PRB-CENDRE Monitoring Tool',
+    description: 'Internal tool used in bank operations for politically exposed persons and AMLA (Anti-Money Laundering and Counter-Terrorism Financing) monitoring.',
     tech: ['PHP', 'MySQL', 'HTML', 'Bootstrap', 'JavaScript', 'PHPDesktop'],
-    img: 'img/projects/pep-monitoring.png',
-
+    images: [
+      'assets/images/pj_src/pj-cend-1.jpg',
+      'assets/images/pj_src/pj-cend-2.jpg',
+      'assets/images/pj_src/pj-cend-3.jpg',
+      'assets/images/pj_src/pj-cend-4.jpg',
+      'assets/images/pj_src/pj-cend-5.jpg',
+      'assets/images/pj_src/pj-cend-6.jpg'
+    ]
   }
   ,{
     title: 'Digitization Tool',
     description: 'Internal tool used in bank operations for organizing digitized physical documents of account holder\'s information.',
     tech: ['PHP', 'MySQL', 'HTML', 'Bootstrap', 'JavaScript', 'PHPDesktop'],
-    img: 'img/projects/digitization.png',
+    images: [
+      'assets/images/pj_src/pj-digi-1.jpg',
+      'assets/images/pj_src/pj-digi-2.jpg',
+      'assets/images/pj_src/pj-digi-3.jpg'
+    ]
   }
 ];
 
@@ -142,8 +152,8 @@ window.SECTIONS = {
 
     <div id="experiences-timeline" class="hidden w-full min-w-0">
       <div id="timeline-viewport" class="timeline-viewport timeline-viewport-vertical relative w-full max-w-full overflow-hidden rounded-xl border border-slate-800 bg-slate-900/30 select-none cursor-grab active:cursor-grabbing group">
-        <button type="button" id="timeline-prev" class="timeline-frame-nav timeline-frame-nav-left absolute left-0 top-1/2 -translate-y-1/2 z-20 h-full min-w-[3rem] flex items-center justify-center aria-label="Previous"><span>&lt;</span></button>
-        <button type="button" id="timeline-next" class="timeline-frame-nav timeline-frame-nav-right absolute right-0 top-1/2 -translate-y-1/2 z-20 h-full min-w-[3rem] flex items-center justify-center aria-label="Next"><span>&gt;</span></button>
+        <button type="button" id="timeline-prev" class="timeline-frame-nav timeline-frame-nav-left absolute left-0 top-1/2 -translate-y-1/2 z-20 h-full min-w-[3rem] flex items-center justify-center aria-label="Previous"><span>▲</span></button>
+        <button type="button" id="timeline-next" class="timeline-frame-nav timeline-frame-nav-right absolute right-0 top-1/2 -translate-y-1/2 z-20 h-full min-w-[3rem] flex items-center justify-center aria-label="Next"><span>▼</span></button>
         <div id="timeline-viewport-inner" class="timeline-viewport-inner flex transition-[transform] duration-300 ease-out">
           <div id="timeline-track-vertical" class="timeline-track-vertical relative w-full flex-shrink-0 px-4 py-4 pb-12">
           <ul class="timeline-vertical-list space-y-12 pb-8"><!-- experiences.js --></ul>
@@ -156,8 +166,8 @@ window.SECTIONS = {
     </div>
   </div>
 </section>`,
-  "sections/footer.html": `<footer class="relative z-10 py-8 px-6 border-t border-slate-800/50 text-center text-slate-500 text-sm">
-  © <span id="copyright-year"></span> <span class="text-cyan-2">John Carl Discaya</span>. All ideas and concepts are original, with execution assisted by vibe-coding.
+  "sections/footer.html": `<footer class="relative z-10 py-8 px-6 border-b border-slate-800/50 bg-slate-950/80 text-center text-slate-500 text-sm">
+  © <span id="copyright-year"></span> <span class="text-cyan-2">John Carl Discaya</span>. All ideas and concepts are original, with execution assisted by AI.
 </footer>`,
   "sections/hero.html": `<section id="hero" class="min-h-screen flex items-center justify-center px-6 pt-16">
   <div class="max-w-2xl text-center">
@@ -178,15 +188,37 @@ window.SECTIONS = {
   </div>
 </section>`,
   "sections/nav.html": `<nav class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md">
-  <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+  <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col min-[650px]:flex-row justify-center min-[450px]:justify-between items-center gap-3 min-[450px]:gap-0">
     <a href="#hero" class="text-lg font-semibold text-white"><span id="nav-typing-text"></span><span id="nav-typing-cursor">_</span></a>
-    <ul class="flex gap-8 text-sm text-slate-400">
+    <!-- Desktop nav (≥450px) -->
+    <ul class="hidden min-[450px]:flex gap-8 text-sm text-slate-400">
       <li><a href="#hero" class="nav-link transition-colors" data-section="hero">Home</a></li>
       <li><a href="#about" class="nav-link transition-colors" data-section="about">About</a></li>
       <li><a href="#experiences" class="nav-link transition-colors" data-section="experiences">Experiences</a></li>
       <li><a href="#projects" class="nav-link transition-colors" data-section="projects">Projects</a></li>
       <li><a href="#contact" class="nav-link transition-colors" data-section="contact">Contact</a></li>
     </ul>
+    <!-- Mobile trigger + dropdown (≤449px) -->
+    <div class="flex flex-col min-[450px]:hidden items-center gap-2 w-full min-[450px]:w-auto">
+      <button type="button" id="nav-mobile-trigger" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors" aria-expanded="false" aria-controls="nav-mobile-grid" aria-label="Toggle navigation menu">
+        <span id="nav-hamburger" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </span>
+        <span id="nav-caret-down" aria-hidden="true">▼</span>
+        <span id="nav-caret-up" class="hidden" aria-hidden="true">▲</span>
+      </button>
+      <ul id="nav-mobile-grid" class="nav-mobile-grid grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-slate-400 pt-2" role="menu">
+        <li><a href="#hero" class="nav-link transition-colors" data-section="hero">Home</a></li>
+        <li><a href="#about" class="nav-link transition-colors" data-section="about">About</a></li>
+        <li><a href="#experiences" class="nav-link transition-colors" data-section="experiences">Experiences</a></li>
+        <li><a href="#projects" class="nav-link transition-colors" data-section="projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link transition-colors" data-section="contact">Contact</a></li>
+      </ul>
+    </div>
   </div>
 </nav>`,
   "sections/projects.html": `<section id="projects" class="py-24 px-6 border-t border-slate-800/50 bg-slate-900/30">

@@ -21,23 +21,55 @@
       overlay = document.createElement('div');
       overlay.id = 'projects-view-more';
       overlay.className = 'fixed inset-0 z-[100] bg-slate-950/95 flex items-center justify-center p-4 hidden';
-      overlay.innerHTML = '<button type="button" aria-label="Close" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">&times;</button>' +
-        '<div class="max-w-4xl max-h-[90vh] w-full overflow-auto flex items-center justify-center"><img src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg"></div>';
+      overlay.innerHTML =
+        '<button type="button" aria-label="Close" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">&times;</button>' +
+        '<div class="view-more-content relative flex items-center justify-center w-full max-w-4xl max-h-[90vh]">' +
+        '<button type="button" class="view-more-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-slate-800/80 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Previous">&larr;</button>' +
+        '<div class="flex items-center justify-center flex-1 min-w-0"><img src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg"></div>' +
+        '<button type="button" class="view-more-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-slate-800/80 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Next">&rarr;</button>' +
+        '<span class="view-more-counter absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-sm"></span>' +
+        '</div>';
       overlay.addEventListener('click', function (e) {
-        if (e.target === overlay || e.target.closest('button')) overlay._close();
+        if (e.target === overlay || e.target.closest('button[aria-label="Close"]')) overlay._close();
       });
       document.body.appendChild(overlay);
     }
     var img = overlay.querySelector('img');
+    var prevBtn = overlay.querySelector('.view-more-prev');
+    var nextBtn = overlay.querySelector('.view-more-next');
+    var counterEl = overlay.querySelector('.view-more-counter');
+    var idx = 0;
+
     function closeViewMore() {
       overlay.classList.add('hidden');
       document.body.style.overflow = '';
-      document.removeEventListener('keydown', onEsc);
+      document.removeEventListener('keydown', onKeydown);
     }
-    function onEsc(e) { if (e.key === 'Escape') closeViewMore(); }
+    function onKeydown(e) {
+      if (e.key === 'Escape') closeViewMore();
+      else if (urls.length > 1) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      }
+    }
+    function go(delta) {
+      idx = (idx + delta + urls.length) % urls.length;
+      update();
+    }
+    function update() {
+      if (urls[idx]) { img.src = urls[idx]; img.alt = title; }
+      prevBtn.style.display = urls.length > 1 ? '' : 'none';
+      nextBtn.style.display = urls.length > 1 ? '' : 'none';
+      counterEl.textContent = urls.length > 1 ? (idx + 1) + ' / ' + urls.length : '';
+      counterEl.style.display = urls.length > 1 ? '' : 'none';
+    }
+
     overlay._close = closeViewMore;
-    if (urls[0]) { img.src = urls[0]; img.alt = title; }
-    document.addEventListener('keydown', onEsc);
+    idx = 0;
+    update();
+    prevBtn.onclick = function () { go(-1); };
+    nextBtn.onclick = function () { go(1); };
+    document.addEventListener('keydown', onKeydown);
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
