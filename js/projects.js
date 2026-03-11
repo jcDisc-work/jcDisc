@@ -23,11 +23,13 @@
       overlay.className = 'fixed inset-0 z-[100] bg-slate-950/95 flex items-center justify-center p-4 hidden';
       overlay.innerHTML =
         '<button type="button" aria-label="Close" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">&times;</button>' +
-        '<div class="view-more-content relative flex items-center justify-center w-full max-w-4xl max-h-[90vh]">' +
-        '<button type="button" class="view-more-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-slate-800/80 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Previous">&larr;</button>' +
-        '<div class="flex items-center justify-center flex-1 min-w-0"><img src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg"></div>' +
-        '<button type="button" class="view-more-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-slate-800/80 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Next">&rarr;</button>' +
-        '<span class="view-more-counter absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-sm"></span>' +
+        '<div class="view-more-content relative flex flex-col items-center w-full max-w-8xl max-h-[95vh]">' +
+        '<div class="flex items-center justify-center gap-3 flex-1 min-h-0 min-w-0 w-full">' +
+        '<button type="button" class="view-more-prev shrink-0 w-12 h-12 rounded-full bg-slate-800/80 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Previous">&larr;</button>' +
+        '<div class="flex items-center justify-center flex-1 min-w-0 min-h-0"><img src="" alt="" class="view-more-img max-w-full max-h-[92vh] object-contain rounded-lg"></div>' +
+        '<button type="button" class="view-more-next shrink-0 w-12 h-12 rounded-full bg-slate-800/80 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Next">&rarr;</button>' +
+        '</div>' +
+        '<span class="view-more-counter mt-2 px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-sm"></span>' +
         '</div>';
       overlay.addEventListener('click', function (e) {
         if (e.target === overlay || e.target.closest('button[aria-label="Close"]')) overlay._close();
@@ -99,17 +101,7 @@
 
   function render(container) {
     if (!container) return;
-    var personal = data.filter(function (p) { return p.personal; });
-    var involved = data.filter(function (p) { return !p.personal; });
-    var panelClass = 'rounded-xl border border-slate-700 bg-slate-900/50 p-6 col-span-full';
-    var labelClass = 'inline-flex items-center rounded-lg border border-cyan-3 bg-cyan-2 px-3 py-1.5 text-slate-950 text-xs font-medium uppercase tracking-wider mb-4';
-    var personalHtml = personal.length
-      ? '<div class="' + panelClass + '"><div class="' + labelClass + '">Personal</div><div class="grid gap-6 sm:grid-cols-2">' + personal.map(function (p) { return renderProject(p, data.indexOf(p)); }).join('') + '</div></div>'
-      : '';
-    var involvedHtml = involved.length
-      ? '<div class="' + panelClass + '"><div class="' + labelClass + '">Involved</div><div class="grid gap-6 sm:grid-cols-2">' + involved.map(function (p) { return renderProject(p, data.indexOf(p)); }).join('') + '</div></div>'
-      : '';
-    container.innerHTML = personalHtml + involvedHtml;
+    container.innerHTML = data.map(function (p, i) { return renderProject(p, i); }).join('');
     container.querySelectorAll('.view-more-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();

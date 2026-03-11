@@ -1,0 +1,9 @@
+{
+  "name": "jcdisc-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "node build-sections.js",
+    "build:prod": "node build-prod.js",
+    "serve": "node serve.js"
+  }
+}
