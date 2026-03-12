@@ -87,7 +87,7 @@ window.SECTIONS = {
   "sections/about.html": `<section id="about" class="py-24 px-6 border-t border-slate-800/50 bg-slate-900/30">
   <div class="max-w-6xl mx-auto w-full min-w-0">
     <h2 class="text-2xl font-semibold text-white mb-6">About</h2>
-    <div class="mt-8 grid gap-8 items-start md:grid-cols-[minmax(0,280px)_minmax(0,1fr)]">
+    <div class="mt-8 grid gap-8 items-center md:grid-cols-[minmax(0,280px)_minmax(0,1fr)]">
       <div class="mx-auto md:mx-0">
         <div class="h-64 w-64 max-w-full rounded-xl overflow-hidden border border-slate-700 bg-slate-900 shadow-lg">
           <img src="assets/images/profile_src/profile-about.jpg" alt="Profile portrait" class="h-full w-full object-cover">
@@ -100,8 +100,11 @@ window.SECTIONS = {
         <p class="text-slate-400 leading-relaxed mb-4">
           I've spent the years inside systems that handle real payroll, real compliance, real people. It's not glamorous work — but it's the kind that has to be done right, and that's meant meaningful contributions across payroll engines, banking compliance tools, and enterprise HR platforms serving thousands of employees.
         </p>
+        <p class="text-slate-400 leading-relaxed mb-4">
+          My technical stack includes PHP, Laravel, Java, MySQL, PostgreSQL, HTML, CSS, JavaScript (Vanilla, Angular, and Vue.js), Bootstrap, Git, and more. I also make use of AI-assisted tools such as Cursor and Claude to accelerate development, improve code quality, and ensure results meet expectations.
+        </p>
         <p class="text-slate-400 leading-relaxed">
-          My technical stack includes PHP, Laravel, Java, MySQL, PostgreSQL, HTML, CSS, JavaScript (Vanilla, Angular, and Vue.js), Bootstrap, Git, and more. I also make use of AI-assisted tools such as Cursor and Claude to accelerate development, improve code quality, and ensure results meet expectations. My goal is to continuously grow in emerging technologies while staying grounded in collaboration, mentorship, and continuous learning.
+          My goal is to continuously grow in emerging technologies while staying grounded in collaboration, mentorship, and continuous learning.
         </p>
       </div>
     </div>
@@ -138,9 +141,12 @@ window.SECTIONS = {
         <label for="contact-website" class="sr-only">Website</label>
         <input type="text" id="contact-website" name="website" autocomplete="off" tabindex="-1">
       </div>
-      <button type="submit" class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-cyan-3 text-slate-950 font-medium hover:bg-cyan-2 transition-colors">
-        Send message
-      </button>
+      <div class="flex justify-end">
+        <button type="submit" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 rounded-lg bg-cyan-3 text-slate-950 font-medium hover:bg-cyan-2 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send message
+        </button>
+      </div>
       <p id="contact-status" class="mt-3 text-sm text-center text-slate-400"></p>
     </form>
     <p class="mt-6 text-slate-500 text-sm text-center">Or email directly: <a href="mailto:johncarldiscaya@gmail.com" class="text-cyan-3 hover:text-cyan-2">johncarldiscaya@gmail.com</a></p>
@@ -204,26 +210,33 @@ window.SECTIONS = {
     <p class="text-slate-400 text-lg">
       Full Stack Developer fascinated by complex systems — from payroll engines to banking compliance tools. Six years in, and I'm still finding smarter ways to work. These days, that includes AI.
     </p>
-    <div class="mt-8 flex gap-4 justify-center">
-      <a href="#contributions" class="px-5 py-2.5 rounded-lg bg-cyan-3 text-slate-950 font-medium hover:bg-cyan-2 transition-colors">
-        View work
-      </a>
-      <a href="#contact" class="px-5 py-2.5 rounded-lg border border-slate-600 text-slate-300 hover:border-slate-500 hover:text-white transition-colors">
-        Get in touch
+    <div class="mt-8 flex flex-col gap-4 items-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#contributions" class="px-5 py-2.5 rounded-lg border border-cyan-3 text-cyan-3 font-medium hover:bg-cyan-3 hover:text-slate-950 transition-colors">
+          View work
+        </a>
+        <a href="#contact" class="px-5 py-2.5 rounded-lg border border-cyan-3 text-cyan-3 font-medium hover:bg-cyan-3 hover:text-slate-950 transition-colors">
+          Get in touch
+        </a>
+      </div>
+      <a href="assets/resume.pdf" download class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-cyan-3 text-cyan-3 font-medium hover:bg-cyan-3 hover:text-slate-950 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
       </a>
     </div>
   </div>
 </section>`,
   "sections/nav.html": `<nav class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md">
-  <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col min-[650px]:flex-row justify-center min-[450px]:justify-between items-center gap-3 min-[450px]:gap-0">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col min-[650px]:flex-row justify-center min-[450px]:justify-between items-center gap-3 min-[450px]:gap-0">
     <a href="#hero" class="text-lg font-semibold text-white"><span id="nav-typing-text"></span><span id="nav-typing-cursor">_</span></a>
     <!-- Desktop nav (≥450px) -->
-    <ul class="hidden min-[450px]:flex gap-8 text-sm text-slate-400">
+    <ul class="hidden min-[450px]:flex items-center gap-8 text-sm text-slate-400">
       <li><a href="#hero" class="nav-link transition-colors" data-section="hero">Home</a></li>
       <li><a href="#about" class="nav-link transition-colors" data-section="about">About</a></li>
       <li><a href="#experiences" class="nav-link transition-colors" data-section="experiences">Experiences</a></li>
       <li><a href="#contributions" class="nav-link transition-colors" data-section="contributions">Contributions</a></li>
       <li><a href="#contact" class="nav-link transition-colors" data-section="contact">Contact</a></li>
+      <li><a href="assets/resume.pdf" download class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-3 text-slate-950 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a></li>
     </ul>
     <!-- Mobile trigger + dropdown (≤449px) -->
     <div class="flex flex-col min-[450px]:hidden items-center gap-2 w-full min-[450px]:w-auto">
@@ -244,6 +257,7 @@ window.SECTIONS = {
         <li><a href="#experiences" class="nav-link transition-colors" data-section="experiences">Experiences</a></li>
         <li><a href="#contributions" class="nav-link transition-colors" data-section="contributions">Contributions</a></li>
         <li><a href="#contact" class="nav-link transition-colors" data-section="contact">Contact</a></li>
+        <li class="col-span-2 pt-2"><a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 w-full px-3 py-1.5 rounded-lg bg-cyan-3 text-slate-950 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a></li>
       </ul>
     </div>
   </div>

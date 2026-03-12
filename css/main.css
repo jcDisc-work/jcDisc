@@ -47,7 +47,7 @@ html { scroll-behavior: smooth; }
   transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out;
 }
 .nav-mobile-grid.open {
-  max-height: 12rem;
+  max-height: 15rem;
   opacity: 1;
 }
 
