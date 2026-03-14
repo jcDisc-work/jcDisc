@@ -27,8 +27,9 @@ function buildFromSectionsData() {
   const sections = loadSectionsFromData();
   const entries = Object.entries(sections);
 
+  const docsRoot = path.join(__dirname, 'docs');
   entries.forEach(([relativePath, html]) => {
-    const outputPath = path.join(__dirname, relativePath);
+    const outputPath = path.join(docsRoot, relativePath);
     const dir = path.dirname(outputPath);
 
     if (!fs.existsSync(dir)) {
@@ -40,11 +41,22 @@ function buildFromSectionsData() {
   });
 
   console.log(`[build-sections] Built ${entries.length} section file(s).`);
+
+  const jsDir = path.join(__dirname, 'js');
+  const docsJsDir = path.join(docsRoot, 'js');
+  if (!fs.existsSync(docsJsDir)) fs.mkdirSync(docsJsDir, { recursive: true });
+  fs.readdirSync(jsDir)
+    .filter((f) => f.endsWith('.js'))
+    .forEach((f) => {
+      fs.copyFileSync(path.join(jsDir, f), path.join(docsJsDir, f));
+      console.log('[build-sections] Copied js/' + f + ' -> docs/js/' + f);
+    });
+
   return entries.length;
 }
 
 function watchSectionsData() {
-  console.log('[build-sections] Watching js/sections-data.js — edit and save to regenerate sections/*.html.');
+  console.log('[build-sections] Watching js/sections-data.js — edit and save to regenerate docs/sections/*.html.');
 
   fs.watch(SECTIONS_DATA_FILE, { persistent: true }, (eventType) => {
     if (eventType !== 'change') return;

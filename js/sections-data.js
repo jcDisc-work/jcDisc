@@ -219,7 +219,7 @@ window.SECTIONS = {
           Get in touch
         </a>
       </div>
-      <a href="assets/resume.pdf" download class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-cyan-3 text-cyan-3 font-medium hover:bg-cyan-3 hover:text-slate-950 transition-colors">
+      <a href="assets/files/resume_jcDisc.pdf" download class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-cyan-3 text-cyan-3 font-medium hover:bg-cyan-3 hover:text-slate-950 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Resume
       </a>
@@ -236,7 +236,7 @@ window.SECTIONS = {
       <li><a href="#experiences" class="nav-link transition-colors" data-section="experiences">Experiences</a></li>
       <li><a href="#contributions" class="nav-link transition-colors" data-section="contributions">Contributions</a></li>
       <li><a href="#contact" class="nav-link transition-colors" data-section="contact">Contact</a></li>
-      <li><a href="assets/resume.pdf" download class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-3 text-slate-950 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a></li>
+      <li><a href="assets/files/resume_jcDisc.pdf" download class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-3 text-slate-950 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a></li>
     </ul>
     <!-- Mobile trigger + dropdown (≤449px) -->
     <div class="flex flex-col min-[450px]:hidden items-center gap-2 w-full min-[450px]:w-auto">
@@ -257,7 +257,7 @@ window.SECTIONS = {
         <li><a href="#experiences" class="nav-link transition-colors" data-section="experiences">Experiences</a></li>
         <li><a href="#contributions" class="nav-link transition-colors" data-section="contributions">Contributions</a></li>
         <li><a href="#contact" class="nav-link transition-colors" data-section="contact">Contact</a></li>
-        <li class="col-span-2 pt-2"><a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 w-full px-3 py-1.5 rounded-lg bg-cyan-3 text-slate-950 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a></li>
+        <li class="col-span-2 pt-2"><a href="assets/files/resume_jcDisc.pdf" download class="flex items-center justify-center gap-2 w-full px-3 py-1.5 rounded-lg bg-cyan-3 text-slate-950 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a></li>
       </ul>
     </div>
   </div>

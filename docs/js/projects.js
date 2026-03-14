@@ -101,17 +101,7 @@
 
   function render(container) {
     if (!container) return;
-    var personal = data.filter(function (p) { return p.personal; });
-    var involved = data.filter(function (p) { return !p.personal; });
-    var panelClass = 'rounded-xl border border-slate-700 bg-slate-900/50 p-6 col-span-full';
-    var labelClass = 'inline-flex items-center rounded-lg border border-cyan-3 bg-cyan-2 px-3 py-1.5 text-slate-950 text-xs font-medium uppercase tracking-wider mb-4';
-    var personalHtml = personal.length
-      ? '<div class="' + panelClass + '"><div class="' + labelClass + '">Personal</div><div class="grid gap-6 sm:grid-cols-2">' + personal.map(function (p) { return renderProject(p, data.indexOf(p)); }).join('') + '</div></div>'
-      : '';
-    var involvedHtml = involved.length
-      ? '<div class="' + panelClass + '"><div class="' + labelClass + '">Involved</div><div class="grid gap-6 sm:grid-cols-2">' + involved.map(function (p) { return renderProject(p, data.indexOf(p)); }).join('') + '</div></div>'
-      : '';
-    container.innerHTML = personalHtml + involvedHtml;
+    container.innerHTML = data.map(function (p, i) { return renderProject(p, i); }).join('');
     container.querySelectorAll('.view-more-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();

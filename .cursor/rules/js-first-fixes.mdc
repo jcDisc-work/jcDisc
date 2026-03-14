@@ -3,6 +3,6 @@ alwaysApply: true
 ---
 # JS-First Fixes
 
-`build-sections.js` generates `sections/*.html` from `window.SECTIONS` defined in `js/sections-data.js`. Direct edits to generated HTML will be overwritten on the next build.
+`build-sections.js` generates `docs/sections/*.html` from `window.SECTIONS` defined in `js/sections-data.js`. Direct edits to generated HTML will be overwritten on the next build.
 
-**Always make fixes and content changes in the JS source files** (e.g. `js/sections-data.js`, `js/projects.js`) rather than in `sections/*.html`.
+**Always make fixes and content changes in the JS source files** (e.g. `js/sections-data.js`, `js/projects.js`) rather than in `docs/sections/*.html`.
