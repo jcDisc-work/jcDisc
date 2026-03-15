@@ -120,14 +120,14 @@ This repo serves as the launch point for my developer portfolio. It includes:
 - Contribution narratives and system context (this README)
 - A live portfolio site with full work history, system contributions, and a downloadable resume
 
-> 🔗 
+> 🔗 [jcDisc's Portfolio](https://jcdisc-work.github.io/jcDisc/)
 
 ---
 
 ## 📬 Let's Connect
 
 - **Email:** *[johncarldiscaya@gmail.com](mailto:johncarldiscaya@gmail.com)*
-- **LinkedIn:** *www.linkedin.com/in/jcDisc*
+- **LinkedIn:** *[www.linkedin.com/in/jcDisc](http://www.linkedin.com/in/jcDisc)*
 - **Location:** Philippines · Open to remote opportunities
 
 ---
