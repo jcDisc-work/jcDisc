@@ -33,7 +33,7 @@
       '</div>';
     }).join('');
 
-    return '<div class="contrib-details-panel overflow-hidden" aria-hidden="true">' +
+    return '<div class="contrib-details-panel overflow-hidden" aria-hidden="true" style="max-height:0;">' +
       '<div class="pt-4 space-y-3 border-t border-slate-800 mt-4">' + inner + '</div>' +
     '</div>';
   }
